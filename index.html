@@ -5,226 +5,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adorable Kittens Need Forever Homes</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #d63031;
+            --secondary: #ffeaa7;
+            --accent: #00b894;
+            --background: #fafafa;
+            --text: #222;
+            --card-bg: #fff;
         }
-        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #e17055 100%);
+            background: var(--background);
+            color: var(--text);
             min-height: 100vh;
         }
-        
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 32px 16px;
         }
-        
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem 2rem;
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 2.5rem 1.5rem 2rem 1.5rem;
             margin-bottom: 2rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            border: 1px solid #eee;
         }
-        
         h1 {
-            color: #d63031;
-            font-size: 3.5rem;
+            color: var(--primary);
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: -1px;
         }
-        
         .subtitle {
-            color: #636e72;
-            font-size: 1.3rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
         }
-        
         .urgent-banner {
             background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 1rem;
-            border-radius: 15px;
-            margin: 1rem 0;
-            text-align: center;
-            font-weight: bold;
+            padding: 0.7rem 1rem;
+            border-radius: 12px;
+            margin: 1rem 0 0.5rem 0;
+            font-weight: 600;
+            font-size: 1.1rem;
             animation: pulse 2s infinite;
         }
-        
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
-        
         .intro-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 20px;
+            background: var(--card-bg);
+            padding: 2rem 1rem 1.5rem 1rem;
+            border-radius: 18px;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             text-align: center;
         }
-        
+        .intro-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .intro-section p {
+            color: #555;
+            font-size: 1.08rem;
+        }
+        .intro-video {
+            width: 100%;
+            max-width: 360px;
+            margin: 1.5rem auto 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+            display: block;
+        }
         .kittens-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
-        
         .kitten-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
-            border: 3px solid #ffeaa7;
-            transition: all 0.3s ease;
+            background: var(--card-bg);
+            padding: 1.5rem 1rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            border: 1px solid #eee;
             text-align: center;
+            transition: box-shadow 0.2s, transform 0.2s;
         }
-        
-        .kitten-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            border-color: #fdcb6e;
+        .kitten-card:hover, .kitten-card:focus-within {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+            transform: translateY(-4px) scale(1.01);
         }
-        
         .kitten-photo {
             width: 100%;
-            height: 250px;
-            border-radius: 15px;
+            max-width: 220px;
+            height: 180px;
+            border-radius: 12px;
             object-fit: cover;
-            margin-bottom: 1.5rem;
-            border: 3px solid #ddd;
+            margin-bottom: 1.1rem;
+            border: 2px solid #eee;
             background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 1rem;
         }
-        
         .kitten-name {
-            font-size: 2rem;
-            color: #d63031;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
         }
-        
         .kitten-details {
-            color: #636e72;
-            margin-bottom: 1rem;
-            line-height: 1.8;
+            color: #555;
+            margin-bottom: 0.7rem;
+            font-size: 0.98rem;
         }
-        
         .kitten-personality {
-            background: #ffeaa7;
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1rem 0;
+            background: var(--secondary);
+            padding: 0.7rem;
+            border-radius: 8px;
+            margin: 0.7rem 0 1rem 0;
             font-style: italic;
+            font-size: 0.97rem;
         }
-        
         .adopt-btn {
-            background: linear-gradient(45deg, #00b894, #00cec9);
+            background: var(--accent);
             color: white;
-            padding: 15px 30px;
+            padding: 10px 22px;
             border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.2s, box-shadow 0.2s;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        .adopt-btn:hover {
-            background: linear-gradient(45deg, #00a085, #00b7b8);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .adopt-btn:hover, .adopt-btn:focus {
+            background: #009e7a;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
         }
-        
-        .contact-section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-method {
-            padding: 1.5rem;
-            background: #ffeaa7;
-            border-radius: 15px;
-            border: 2px solid #fdcb6e;
-        }
-        
         .requirements {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 20px;
+            background: var(--card-bg);
+            padding: 1.5rem 1rem;
+            border-radius: 16px;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
-        
         .requirements h2 {
-            color: #d63031;
+            color: var(--primary);
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.1rem;
         }
-        
         .requirements-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
         }
-        
         .requirement-item {
             background: #e8f4f8;
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 4px solid #00b894;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            font-size: 0.97rem;
         }
-        
+        .contact-section {
+            background: var(--card-bg);
+            padding: 2rem 1rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .contact-method {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 10px;
+            border: 1.5px solid #fdcb6e;
+            font-size: 0.98rem;
+        }
         footer {
             text-align: center;
-            padding: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            background: rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
+            padding: 1.5rem 1rem;
+            color: #fff;
+            background: var(--primary);
+            border-radius: 12px;
+            font-size: 1.05rem;
         }
-        
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 1.5rem;
             }
-            
             .container {
-                padding: 10px;
+                padding: 8px;
             }
-            
             .kittens-grid {
                 grid-template-columns: 1fr;
+            }
+            .kitten-photo {
+                max-width: 100%;
+                height: 140px;
             }
         }
     </style>
@@ -240,13 +229,13 @@
         </header>
         
         <div class="intro-section">
-            <h2 style="color: #d63031; margin-bottom: 1rem;">💕 About Our Rescue Kittens 💕</h2>
-            <p style="font-size: 1.1rem; color: #636e72;">
+            <h2>💕 About Our Rescue Kittens 💕</h2>
+            <p>
                 These beautiful kittens are healthy, playful, and ready to bring joy to your home. 
                 Each one has been lovingly cared for and is looking for a family to call their own. 
                 All kittens are litter trained, socialized, and have received proper veterinary care.
             </p>
-            <video controls style="width:100%; max-width:600px; border-radius:15px; margin-top:2rem; box-shadow:0 4px 20px rgba(0,0,0,0.12);">
+            <video class="intro-video" id="introVideo" muted playsinline preload="metadata" poster="IMG_6865.jpeg">
                 <source src="IMG_6871.MOV" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -254,7 +243,7 @@
         
         <div class="kittens-grid">
             <div class="kitten-card">
-                <img class="kitten-photo" src="IMG_6865.jpeg" alt="Luna the kitten">
+                <img class="kitten-photo" src="IMG_6865.jpeg" alt="Luna, a calico kitten looking for a home" loading="lazy">
                 <div class="kitten-name">Luna</div>
                 <div class="kitten-details">
                     <strong>Age:</strong> 8 weeks old<br>
@@ -269,7 +258,7 @@
             </div>
             
             <div class="kitten-card">
-                <img class="kitten-photo" src="IMG_6874.jpeg" alt="Milo the kitten">
+                <img class="kitten-photo" src="IMG_6874.jpeg" alt="Milo, an orange tabby kitten looking for a home" loading="lazy">
                 <div class="kitten-name">Milo</div>
                 <div class="kitten-details">
                     <strong>Age:</strong> 9 weeks old<br>
@@ -284,7 +273,7 @@
             </div>
             
             <div class="kitten-card">
-                <img class="kitten-photo" src="IMG_6875.jpeg" alt="Bella the kitten">
+                <img class="kitten-photo" src="IMG_6875.jpeg" alt="Bella, a gray and white kitten looking for a home" loading="lazy">
                 <div class="kitten-name">Bella</div>
                 <div class="kitten-details">
                     <strong>Age:</strong> 10 weeks old<br>
@@ -363,22 +352,8 @@
     <script>
         function inquireAbout(kittenName) {
             const message = `I'm interested in adopting ${kittenName}! Could you please provide more information about the adoption process?`;
-            
-            // You can customize this to:
-            // 1. Open an email client: window.location.href = `mailto:your-email@example.com?subject=Adoption Inquiry for ${kittenName}&body=${encodeURIComponent(message)}`;
-            // 2. Open a contact form
-            // 3. Show a phone number
-            // 4. Redirect to an application page
-            
-            alert(`Thank you for your interest in ${kittenName}! 
-            
-Please contact us at:
-📧 your-email@example.com 
-📱 (555) 123-4567
-
-We'll get back to you within 24 hours with next steps!`);
+            alert(`Thank you for your interest in ${kittenName}! \n\nPlease contact us at:\n📧 your-email@example.com \n📱 (555) 123-4567\n\nWe'll get back to you within 24 hours with next steps!`);
         }
-        
         // Add entrance animations
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.kitten-card');
@@ -386,12 +361,28 @@ We'll get back to you within 24 hours with next steps!`);
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(50px)';
                 card.style.transition = 'all 0.6s ease';
-                
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }, index * 200);
             });
+            // Autoplay video when in view
+            const video = document.getElementById('introVideo');
+            if (video) {
+                const observer = new window.IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                video.play();
+                            } else {
+                                video.pause();
+                            }
+                        });
+                    },
+                    { threshold: 0.5 }
+                );
+                observer.observe(video);
+            }
         });
     </script>
 </body>
