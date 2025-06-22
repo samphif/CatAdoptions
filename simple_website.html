@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adorable Kittens Need Forever Homes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #e17055 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        h1 {
+            color: #d63031;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            color: #636e72;
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .urgent-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .intro-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .kittens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .kitten-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+            border: 3px solid #ffeaa7;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .kitten-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            border-color: #fdcb6e;
+        }
+        
+        .kitten-photo {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid #ddd;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1rem;
+        }
+        
+        .kitten-name {
+            font-size: 2rem;
+            color: #d63031;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .kitten-details {
+            color: #636e72;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .kitten-personality {
+            background: #ffeaa7;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+        
+        .adopt-btn {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .adopt-btn:hover {
+            background: linear-gradient(45deg, #00a085, #00b7b8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .contact-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-method {
+            padding: 1.5rem;
+            background: #ffeaa7;
+            border-radius: 15px;
+            border: 2px solid #fdcb6e;
+        }
+        
+        .requirements {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .requirements h2 {
+            color: #d63031;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .requirements-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .requirement-item {
+            background: #e8f4f8;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #00b894;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .kittens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐱 Adorable Kittens Need Forever Homes 🐱</h1>
+            <p class="subtitle">Help these precious babies find their loving families</p>
+            <div class="urgent-banner">
+                ⚡ URGENT: These sweet kittens are ready for adoption NOW! ⚡
+            </div>
+        </header>
+        
+        <div class="intro-section">
+            <h2 style="color: #d63031; margin-bottom: 1rem;">💕 About Our Rescue Kittens 💕</h2>
+            <p style="font-size: 1.1rem; color: #636e72;">
+                These beautiful kittens are healthy, playful, and ready to bring joy to your home. 
+                Each one has been lovingly cared for and is looking for a family to call their own. 
+                All kittens are litter trained, socialized, and have received proper veterinary care.
+            </p>
+            <video controls style="width:100%; max-width:600px; border-radius:15px; margin-top:2rem; box-shadow:0 4px 20px rgba(0,0,0,0.12);">
+                <source src="IMG_6871.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="kittens-grid">
+            <div class="kitten-card">
+                <img class="kitten-photo" src="IMG_6865.jpeg" alt="Luna the kitten">
+                <div class="kitten-name">Luna</div>
+                <div class="kitten-details">
+                    <strong>Age:</strong> 8 weeks old<br>
+                    <strong>Gender:</strong> Female<br>
+                    <strong>Color:</strong> Calico<br>
+                    <strong>Weight:</strong> 2.1 lbs
+                </div>
+                <div class="kitten-personality">
+                    "Luna is a gentle soul who loves to purr and cuddle. She's perfect for a quiet home and gets along wonderfully with other cats!"
+                </div>
+                <button class="adopt-btn" onclick="inquireAbout('Luna')">Adopt Luna</button>
+            </div>
+            
+            <div class="kitten-card">
+                <img class="kitten-photo" src="IMG_6874.jpeg" alt="Milo the kitten">
+                <div class="kitten-name">Milo</div>
+                <div class="kitten-details">
+                    <strong>Age:</strong> 9 weeks old<br>
+                    <strong>Gender:</strong> Male<br>
+                    <strong>Color:</strong> Orange Tabby<br>
+                    <strong>Weight:</strong> 2.3 lbs
+                </div>
+                <div class="kitten-personality">
+                    "Milo is a playful adventurer who loves toys and exploring! He's great with kids and would thrive in an active household."
+                </div>
+                <button class="adopt-btn" onclick="inquireAbout('Milo')">Adopt Milo</button>
+            </div>
+            
+            <div class="kitten-card">
+                <img class="kitten-photo" src="IMG_6875.jpeg" alt="Bella the kitten">
+                <div class="kitten-name">Bella</div>
+                <div class="kitten-details">
+                    <strong>Age:</strong> 10 weeks old<br>
+                    <strong>Gender:</strong> Female<br>
+                    <strong>Color:</strong> Gray & White<br>
+                    <strong>Weight:</strong> 2.5 lbs
+                </div>
+                <div class="kitten-personality">
+                    "Bella is the perfect balance of playful and cuddly. She loves attention and would make an excellent companion for anyone!"
+                </div>
+                <button class="adopt-btn" onclick="inquireAbout('Bella')">Adopt Bella</button>
+            </div>
+        </div>
+        
+        <div class="requirements">
+            <h2>🏠 Adoption Requirements</h2>
+            <div class="requirements-list">
+                <div class="requirement-item">
+                    <strong>Age Requirement:</strong><br>
+                    Must be 21+ years old
+                </div>
+                <div class="requirement-item">
+                    <strong>Home Visit:</strong><br>
+                    We may require a home check
+                </div>
+                <div class="requirement-item">
+                    <strong>Veterinary Care:</strong><br>
+                    Commitment to regular vet visits
+                </div>
+                <div class="requirement-item">
+                    <strong>Indoor Living:</strong><br>
+                    Kittens must be indoor pets
+                </div>
+                <div class="requirement-item">
+                    <strong>Spay/Neuter:</strong><br>
+                    Agreement to spay/neuter when age appropriate
+                </div>
+                <div class="requirement-item">
+                    <strong>References:</strong><br>
+                    Veterinary and personal references
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h2 style="color: #d63031; margin-bottom: 1rem;">📞 Ready to Adopt? Contact Us!</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                We're here to help match you with the perfect kitten companion!
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-method">
+                    <h3>📧 Email</h3>
+                    <p>your-email@example.com</p>
+                    <p>Response within 24 hours</p>
+                </div>
+                <div class="contact-method">
+                    <h3>📱 Phone/Text</h3>
+                    <p>(555) 123-4567</p>
+                    <p>Available 9 AM - 8 PM</p>
+                </div>
+                <div class="contact-method">
+                    <h3>💬 Social Media</h3>
+                    <p>@KittenRescue</p>
+                    <p>See more photos & updates!</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>💝 Thank you for considering adoption and helping save lives! 💝</p>
+            <p>Every adoption makes room for us to rescue another kitten in need.</p>
+        </footer>
+    </div>
+    
+    <script>
+        function inquireAbout(kittenName) {
+            const message = `I'm interested in adopting ${kittenName}! Could you please provide more information about the adoption process?`;
+            
+            // You can customize this to:
+            // 1. Open an email client: window.location.href = `mailto:your-email@example.com?subject=Adoption Inquiry for ${kittenName}&body=${encodeURIComponent(message)}`;
+            // 2. Open a contact form
+            // 3. Show a phone number
+            // 4. Redirect to an application page
+            
+            alert(`Thank you for your interest in ${kittenName}! 
+            
+Please contact us at:
+📧 your-email@example.com 
+📱 (555) 123-4567
+
+We'll get back to you within 24 hours with next steps!`);
+        }
+        
+        // Add entrance animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.kitten-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
